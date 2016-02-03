@@ -44,7 +44,7 @@ class NeuralNetwork(object):
             np.subtract(self.inputWeights,inputWeightsError/2)
             np.subtract(self.hiddenWeights,hiddenWeightsError/2)
         
-##--------------------------------------------------------------------##
+#--------------------------------------------------------------------#
 # Handle code stuff
 
 argsize = len(sys.argv)
@@ -82,36 +82,42 @@ coordListResults = []
 classificationListResults = []
 
 linenumber = 0
-# inputs = (x, outputs), outputs = Score on test
+#read file and make an arrays for data and classifications
 for line in open(filename,'r'):
     splitLine = line[:-2].split(" ")
     x = float(splitLine[0])
     outputs = float(splitLine[1])
-    if linenumber >= filelen * p:#testing data
+    #keep some data witheld 
+    #testing data
+    if linenumber >= filelen * p:
         coordListResults.append(np.array([x,outputs]))
         classificationListResults.append([float(splitLine[2])])
-    else:#training data
+   #training data
+    else:
         coordList.append(np.array([x,outputs]))
         classificationList.append([float(splitLine[2])])
     linenumber = linenumber + 1 
+
     
 inputs = np.array(coordList)
 outputs = np.array(classificationList)
 inputResults = np.array(coordListResults)
 yResults = np.array(classificationListResults)
 
-# Normalize
+# Normalize 
 inputs = (inputs-np.amin(inputs, axis=0))/np.amax(inputs, axis=0)
 
 # Let's make a neural network!
 network = NeuralNetwork(h)
 network.train(inputs,outputs)
 
+#round normalized data to 1 or 0
 results = np.rint(network.propogate(inputResults))
 
 numResults = len(results)
 numCorrect = 0
 
+#count num correct for percentage error
 for n in range(0,numResults-1):
     if(yResults[n] == results[n]):
         numCorrect = numCorrect + 1
