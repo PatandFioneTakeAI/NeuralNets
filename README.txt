@@ -18,5 +18,22 @@ Decreasing the hold out percentage decreased our error rate. This makes sense be
 
 2)Hidden neurons ranging from 2-10, with witholding = .2 
 
+h = 2 	0.500,	0.500,	0.480  AVG = 	0.493
+h = 3 	0.463,	0.500,	0.507  AVG = 	0.490
+h = 4	 0.506,	0.481,	0.444  AVG = 	0.477
+h = 5	 0.525,	0.431,	0.500  AVG = 	0.485
+h = 6	 0.431,	0.406,	0.500  AVG = 	0.446
+h = 7	 0.438,	0.506,	0.494  AVG =  0.479
+h = 8	 0.575,	0.413,	0.506  AVG = 	0.498
+h = 9	 0.419, 0.367,	0.481  AVG = 	0.423
+h = 10	0.394,	0.394,	0.3462 AVG =  0.378
+
+
+We think it’s safe to say our data didn’t produce data as smoothly as we would have wanted but ideally there would have been a decrease in error as number of hidden nodes increased. We would expect this because an increase in the number of hidden nodes allows us to better train each weight for the nodes. 
+
+3) When implementing our neural network we decided that we would only do 200 iterations, given that the data set provided was only 200 entries long. We currently have the number of input and output nodes hard coded, but our model should be able to handle changes because we implemented matrices for propagation that can be dynamically changed but our accuracy would probably suffer as a result. 
+
+
+
 
 
