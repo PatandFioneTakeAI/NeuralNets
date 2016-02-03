@@ -2,8 +2,13 @@ AUTHORS:  Fiona Heaney & Pat Lebold
 ASSIGMENT: 2 - Artifical Neural Networks
 ***** Granted 2 day extension from original due date by Prof Heffernan (2/2) ********
 
+VERSION: Python 3.5
+LIBRARIES: numpy 
+
+
 TO RUN: python ann.py <filename> [h<number of hidden nodes> | p <holdout percentage> ]
 where <filename> would specify the file to read from, h <number of hidden nodes> specifies the number of nodes used in the hidden layer and p <holdout percentage> is the percentage of the data that should be withheld to use for testing purposes.
+
 
 QUESTIONS: 
 
